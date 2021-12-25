@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Mvvm_Example</string>
+    <string name="availablemargintrade">Available margin to trade</string>
+    <string name="AE_RUPEES_SYMBOL_Value">\u20B9 %1$s</string>
+    <string name="totalmargin">Total margin</string>
+    <string name="fundLabel">Funds</string>
+    <string name="MENU_HOLDINGS">Holdings</string>
+    <string name="usedmargin">Used margin</string>
+    <string name="prev_balance">Previous Balance</string>
+    <string name="value1">222.0</string>
+</resources>
