@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.bottom_sheet.*
 
 class BottomSheetSubList: BottomSheetDialogFragment(){
     lateinit var activity: Activity
-companion object getVal{
+    companion object getVal{
     private var heading :String ?=null
     private var dispValue :String ?=null
     var subList: List<Sub>? = emptyList()

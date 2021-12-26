@@ -19,7 +19,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
-
+    val bottomsheet = BottomSheetSubList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,16 +27,7 @@ class MainActivity : AppCompatActivity() {
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
-        viewModel.getCustomPosts(
-            (PostDataReqst(
-                echo = Echo(RequestDataGet.SpinnerItem), request = Request(
-                    RequestDataGet.appId, Data(
-                        RequestDataGet.grpId,RequestDataGet.sessionId,
-                        RequestDataGet.type,RequestDataGet.usrCode,RequestDataGet.usrID
-                    ), formFactor = RequestDataGet.formFactor, futures = RequestDataGet.futures, response_format = RequestDataGet.response_format
-                )
-            ))
-        )
+        viewModel.getCustomPosts()
 
         viewModel.myCustomPosts.observe(this, Observer { response ->
             if (response.isSuccessful) {
@@ -74,7 +65,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun setAdapter(heading: String, dispValue: String, listSub :List<Sub>){
-        val bottomsheet = BottomSheetSubList()
         BottomSheetSubList.setBottomsheetValue(heading,dispValue,listSub)
         bottomsheet.show(supportFragmentManager,"bottomsheet")
     }
