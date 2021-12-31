@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">mvvm_image</string>
+    <string name="album">Album id :</string>
+    <string name="id">Id :</string>
+    <string name="title">Title</string>
+    <string name="no_data">No Data Available</string>
+</resources>
