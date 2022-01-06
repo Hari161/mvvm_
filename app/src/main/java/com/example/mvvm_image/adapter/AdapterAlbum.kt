@@ -30,17 +30,12 @@ class AdapterAlbum(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.main_lay_cl.setOnClickListener {
-            val intent = Intent(context, ImageredirectionScreen::class.java)
-            intent.putExtra("urlLink", albumList[position].thumbnailUrl)
-            context.startActivity(intent)
-        }
-        holder.delete_btn.setOnClickListener {
-            onItemClickListener.onItemClick(position, albumList[position].id)
+            onItemClickListener.onItemClick(albumList[position].url,position,albumList[position].id)
         }
         holder.album_id.text = albumList[position].albumId.toString()
         holder.id.text = albumList[position].id.toString()
         holder.title.text = albumList[position].title
-        holder.image.loadUrl(albumList[position].url)
+        holder.image.loadUrl(albumList[position].thumbnailUrl)
     }
 
     override fun getItemCount(): Int {
@@ -48,12 +43,11 @@ class AdapterAlbum(
     }
 
     interface OnItemClickListener {
-        fun onItemClick(removeIndex: Int, album_id: Int)
+        fun onItemClick(urLink : String, position : Int, album_id :Int)
 
     }
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        val delete_btn: TextView = itemView.findViewById(R.id.delete_tv)
         val album_id: TextView = itemView.findViewById(R.id.album_value_tv)
         val id: TextView = itemView.findViewById(R.id.id_value_tv)
         val title: TextView = itemView.findViewById(R.id.title_value_tv)
